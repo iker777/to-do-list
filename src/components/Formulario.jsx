@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Formulario({ setTarea }) {
+function Formulario({ setTareas, tareas }) {
 
     const [titulo, setTitulo] = useState('');
     const [texto, setTexto] = useState('');
+    const [nuevaTarea, setNuevaTarea] = useState({
+        tituloTarea: "",
+        textoTarea: ""
+    })
 
     function guardarTarea(e) {
         e.preventDefault();
-        setTarea({
+        setNuevaTarea({
             tituloTarea: titulo,
             textoTarea: texto
         })
+        setTareas(prevState => ([...prevState, nuevaTarea]))
     }
+
+    useEffect(() => {
+        console.log(tareas)
+    }, [nuevaTarea])
 
     return (
         <div className="formulario">
