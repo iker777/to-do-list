@@ -4,7 +4,7 @@
 }
 
 :root {
-  --main-color: rgb(102, 25, 173);
+  --main-color: rgb(66, 25, 105);
   --secondary-color: rgb(25, 173, 102);
 }
 
@@ -113,7 +113,7 @@
 }
 
 /* Contenedor Tareas */
-.contenedorTareas {
+.listaTareas {
   width: 70%;
   height: 100%;
   display: grid;
@@ -121,9 +121,10 @@
   align-items: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 2fr 2fr 2fr;
+  margin-top: 64px;
 }
 
-.contenedorTareas__h2 {
+.listaTareas__h2 {
   font-size: 2em;
   grid-column: 1 / 4;
   border-bottom: 2px solid white;
@@ -143,11 +144,15 @@
   background-color: rgba(255, 255, 255, 0.45);
   border-radius: 16px;
   border: 2px solid white;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .tarea__btnContainer {
   height: 10%;
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -179,6 +184,34 @@
   background-color: rgba(255, 255, 255, 0.45);
   border-radius: 16px;
   border: 2px solid white;
+  max-width: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* Formulario de edición */
+.formEditor{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  padding: 32px;
+  height: 100vh;
+}
+.formEditor__form {
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 1200px) {
@@ -191,11 +224,12 @@
     margin-top: 32px;
   }
 
-  .contenedorTareas {
+  .listaTareas {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    align-self: center;
   }
 }

@@ -1,13 +1,16 @@
-function Tarea() {
+import BotonEditar from "./BotonEditar";
+import BotonBorrar from "./BotonBorrar";
+
+function Tarea({tarea, borrarTarea, editarTarea}) {
     return (
         <div className="tarea">
             <div className="tarea__btnContainer">
-                <span className="tarea__btn tarea__btn--edit">🖊</span>
-                <span className="tarea__btn tarea__btn--exit">✖</span>
+                <BotonEditar tarea={tarea} editarTarea={editarTarea}/>
+                <BotonBorrar tarea={tarea} borrarTarea={borrarTarea} />
             </div>
             <div className="tarea__contenido">
-                <h2 className="tarea__h2">tituloTarea</h2>
-                <p className="tarea__p">textoTarea</p>
+                <h2 className="tarea__h2">{tarea.tituloTarea}</h2>
+                <p className="tarea__p">{tarea.textoTarea}</p>
             </div>
         </div>
     )
