@@ -9,7 +9,8 @@ function Formulario({ setTareas, tareas }) {
         textoTarea: ""
     })
 
-    function guardarTarea(e) {
+
+    function UseGuardarTarea(e) {
         e.preventDefault();
         setNuevaTarea({
             tituloTarea: titulo,
@@ -17,10 +18,6 @@ function Formulario({ setTareas, tareas }) {
         })
         setTareas(prevState => ([...prevState, nuevaTarea]))
     }
-
-    useEffect(() => {
-        console.log(tareas)
-    }, [nuevaTarea])
 
     return (
         <div className="formulario">
@@ -30,7 +27,7 @@ function Formulario({ setTareas, tareas }) {
                 <input type="text" className="form__input" name="tituloTarea" onChange={(e) => setTitulo(e.target.value)} />
                 <label htmlFor="textoTarea" className="form__label">Texto Tarea</label>
                 <textarea name="textoTarea" className="form__textarea" onChange={(e) => setTexto(e.target.value)}></textarea>
-                <button className="form__btn" onClick={guardarTarea}>Enviar</button>
+                <button className="form__btn" onClick={UseGuardarTarea}>Enviar</button>
             </form>
         </div>
     )

@@ -10,6 +10,12 @@ function App() {
   const [tareas, setTareas] = useState([])
 
   useEffect(() => {
+    if (localStorage.getItem("tareas") !== null) {
+      setTareas((prevState) => [...prevState, JSON.parse(localStorage.tareas)])
+    }
+  }, [])
+
+  useEffect(() => {
     localStorage.setItem('tareas', JSON.stringify(tareas));
   }, [tareas]);
 
@@ -19,8 +25,8 @@ function App() {
 
   return (
     <div className="App">
-      <Formulario setTareas={setTareas} tareas={tareas}/>
-      <ContenedorTareas />
+      <Formulario setTareas={setTareas} tareas={tareas} />
+      <ContenedorTareas tareas={tareas} />
     </div>
   );
 }

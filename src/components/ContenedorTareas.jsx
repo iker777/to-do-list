@@ -1,6 +1,6 @@
 import Tarea from "./Tarea";
 
-function ContenedorTareas(){
+function ContenedorTareas({tareas}){
     return(
         <div className="contenedorTareas">
             <h2 className="contenedorTareas__h2">Tareas por hacer</h2>
