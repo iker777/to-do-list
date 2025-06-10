@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Formulario from './components/Formulario';
+import ContenedorTareas from './components/ContenedorTareas';
 
 function App() {
+
+  const [tarea, setTarea] = useState({
+    tituloTarea: "",
+    textoTarea: ""
+  })
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Formulario setTarea={setTarea}/>
+      <ContenedorTareas/>
+      <p>{tarea.tituloTarea}</p>
+      <p>{tarea.textoTarea}</p>
     </div>
   );
 }
