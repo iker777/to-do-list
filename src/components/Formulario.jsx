@@ -8,7 +8,18 @@ function Formulario({ setTareas }) {
         // Inicializar tareaId desde localStorage al cargar la app
         try {
             const tareasLocalStorage = localStorage.getItem('tareas');
-            return tareasLocalStorage ? JSON.parse(tareasLocalStorage).length + 1 : 1;
+            const tareasLocalStorageArray = JSON.parse(tareasLocalStorage)
+
+            // return tareasLocalStorage ? JSON.parse(tareasLocalStorage).length : 1;
+            if (!tareasLocalStorage || tareasLocalStorageArray.length === 0) {
+                return 1;
+            }
+            if (tareasLocalStorageArray) {
+                const ultimaTarea = tareasLocalStorageArray[tareasLocalStorageArray.length - 1];
+                console.log(tareasLocalStorageArray)
+                return ultimaTarea.id + 1
+            }
+
         } catch (error) {
             console.error("Error al cargar localStorage:", error);
             return 1;
@@ -16,7 +27,7 @@ function Formulario({ setTareas }) {
     });
 
 
-    function UseGuardarTarea(e) {
+    function guardarTarea(e) {
         e.preventDefault();
         const nuevaTareaCreada = {
             id: tareaId, // Incrementa el ID para cada nueva tarea
@@ -38,7 +49,7 @@ function Formulario({ setTareas }) {
                 <input type="text" className="form__input" name="tituloTarea" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
                 <label htmlFor="textoTarea" className="form__label">Texto Tarea</label>
                 <textarea name="textoTarea" className="form__textarea" value={texto} onChange={(e) => setTexto(e.target.value)}></textarea>
-                <button className="form__btn" onClick={UseGuardarTarea}>Enviar</button>
+                <button className="form__btn" onClick={guardarTarea}>Enviar</button>
             </form>
         </div>
     )

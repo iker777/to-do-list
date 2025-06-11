@@ -29,6 +29,7 @@ function App() {
   const borrarTarea = (id) => {
     setTareas((prevState) => prevState.filter((tarea) => tarea.id !== id));
   };
+
   // Editar tareas
   const editarTarea = (id) => {
     const tareaAEditar = tareas.find((tarea) => tarea.id === id);

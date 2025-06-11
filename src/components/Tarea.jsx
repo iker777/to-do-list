@@ -9,6 +9,7 @@ function Tarea({tarea, borrarTarea, editarTarea}) {
                 <BotonBorrar tarea={tarea} borrarTarea={borrarTarea} />
             </div>
             <div className="tarea__contenido">
+                <span>{tarea.id}</span>
                 <h2 className="tarea__h2">{tarea.tituloTarea}</h2>
                 <p className="tarea__p">{tarea.textoTarea}</p>
             </div>
