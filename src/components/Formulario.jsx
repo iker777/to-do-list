@@ -10,7 +10,6 @@ function Formulario({ setTareas }) {
             const tareasLocalStorage = localStorage.getItem('tareas');
             const tareasLocalStorageArray = JSON.parse(tareasLocalStorage)
 
-            // return tareasLocalStorage ? JSON.parse(tareasLocalStorage).length : 1;
             if (!tareasLocalStorage || tareasLocalStorageArray.length === 0) {
                 return 1;
             }
